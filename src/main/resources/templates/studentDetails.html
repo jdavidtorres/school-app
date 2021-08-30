@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${title}">Title</title>
+    </head>
+    <body>
+        <p><a th:href="@{/students}">Back</a></p>
+        <p th:text="${student.name}"></p>
+        <p th:text="${student.lastname}"></p>
+        <p th:text="${student.bloodGroup}"></p>
+    </body>
+</html>
