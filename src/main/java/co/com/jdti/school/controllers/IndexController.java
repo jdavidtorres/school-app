@@ -70,7 +70,7 @@ public class IndexController {
 			return "redirect:/new-student";
 		}
 		iStudentServices.save(student);
-		flash.addFlashAttribute("success", "Factura creada con Éxito!");
+		flash.addFlashAttribute("success", "Factura creada con Ã©xito!");
 		return "redirect:/index";
 	}
 
