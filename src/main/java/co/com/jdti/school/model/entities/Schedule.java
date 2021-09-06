@@ -10,19 +10,18 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "schedule")
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Course {
+public class Schedule {
 
     @Id
     @GeneratedValue(generator = "uuid")
@@ -30,17 +29,11 @@ public class Course {
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     private String id;
 
-    @Column(name = "name")
-    private String name;
+    @Temporal(TemporalType.TIME)
+    @Column(name = "start_class")
+    private Date start;
 
-    @ManyToOne
-    @JoinColumn(name = "director_id")
-    private Teacher director;
-
-    @OneToMany(mappedBy = "course")
-    private List<Student> students;
-
-    public Course(String id) {
-        this.id = id;
-    }
+    @Temporal(TemporalType.TIME)
+    @Column(name = "end_class")
+    private Date end;
 }
