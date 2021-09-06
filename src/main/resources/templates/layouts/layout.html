@@ -14,35 +14,24 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#">SchoolApp</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI() == '/index' || #httpServletRequest.getRequestURI() == '/' ? 'active' : ''}" th:href="@{/index}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="subjectDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().contains('/subject') ? 'active':''}" th:href="@{/subjects}">
                             Subjects
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="subjectDropdown">
-                            <li><a class="dropdown-item" href="#">Add subject</a></li>
-                        </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="studentsDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link" th:classappend="${#httpServletRequest.getRequestURI().contains('/student') ? 'active':''}" th:href="@{/students}">
                             Students
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="studentsDropdown">
-                            <li><a class="dropdown-item" href="#">Add student</a></li>
-                        </ul>
                     </li>
                 </ul>
             </div>

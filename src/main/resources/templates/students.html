@@ -9,14 +9,12 @@
 <title th:text="${title}">Title</title>
 </head>
 <body>
-	<p>
-		<a th:href="@{/index}">Back</a>
-	</p>
-	<h1 th:text="${title}">App Title</h1>
-	<div th:if="${students.empty}">
-		<h2>No Students</h2>
-	</div>
-	<div th:if="${!students.empty}" class="container">
+	<div th:replace="layouts/layout :: header"></div>
+	<div th:if="${!students.empty}" class="container my-4">
+		<h1 th:text="${title}" class="mb-2">App Title</h1>
+		<div th:if="${students.empty}">
+			<h2>No Students</h2>
+		</div>
 		<table class="table table-hover table-sm">
 			<thead>
 				<tr>
