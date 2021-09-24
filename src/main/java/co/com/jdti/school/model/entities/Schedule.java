@@ -23,10 +23,9 @@ import java.util.Date;
 public class Schedule {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue
     @Column(name = "id", unique = true, nullable = false, updatable = false)
-    private String id;
+    private Long id;
 
     @Temporal(TemporalType.TIME)
     @Column(name = "start_class")
