@@ -19,6 +19,7 @@ import co.com.jdti.school.services.ITeacherServices;
 @RequiredArgsConstructor
 @SpringBootApplication
 public class SchoolApplication {
+public class SchoolApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(SchoolApplication.class, args);
