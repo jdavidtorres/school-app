@@ -2,6 +2,8 @@ package co.com.jdti.school;
 
 import java.util.ArrayList;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,6 +16,7 @@ import co.com.jdti.school.services.IStudentServices;
 import co.com.jdti.school.services.ISubjectServices;
 import co.com.jdti.school.services.ITeacherServices;
 
+@RequiredArgsConstructor
 @SpringBootApplication
 public class SchoolApplication {
 
