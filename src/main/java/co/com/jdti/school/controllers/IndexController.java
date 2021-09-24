@@ -2,9 +2,9 @@ package co.com.jdti.school.controllers;
 
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
-import co.com.jdti.school.services.CoursesServicesImpl;
-import co.com.jdti.school.services.StudentServicesImpl;
-import co.com.jdti.school.services.SubjectServicesImpl;
+import co.com.jdti.school.services.CoursesServices;
+import co.com.jdti.school.services.StudentServices;
+import co.com.jdti.school.services.SubjectServices;
 import co.com.jdti.school.services.TeacherServicesImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
