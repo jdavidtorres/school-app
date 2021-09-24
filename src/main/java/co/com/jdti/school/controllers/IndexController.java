@@ -1,22 +1,5 @@
 package co.com.jdti.school.controllers;
 
-import java.util.List;
-import java.util.Optional;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.services.ICourseServices;
@@ -24,6 +7,16 @@ import co.com.jdti.school.services.IStudentServices;
 import co.com.jdti.school.services.ISubjectServices;
 import co.com.jdti.school.services.ITeacherServices;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -141,12 +134,5 @@ public class IndexController {
 		student.setCourse(new Course(courseId));
 		iStudentServices.save(student);
 		return "redirect:/edit-course/" + courseId;
-	}
-
-	@RequestMapping({ "/subjects" })
-	public String subjects(Model model) {
-		model.addAttribute("title", "Subjects");
-		model.addAttribute("subjects", iSubjectServices.findAll());
-		return "subjects";
 	}
 }
