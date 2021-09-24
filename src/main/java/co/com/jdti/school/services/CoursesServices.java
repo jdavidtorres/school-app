@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class CoursesServicesImpl {
+public class CoursesServices {
 
     private final ICoursesDao iCoursesDao;
 

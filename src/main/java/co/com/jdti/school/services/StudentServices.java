@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class StudentServicesImpl {
+public class StudentServices {
 
     private final IStudentDao iStudentDao;
 

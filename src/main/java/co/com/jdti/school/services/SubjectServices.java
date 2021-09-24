@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RequiredArgsConstructor
 @Component
-public class SubjectServicesImpl {
+public class SubjectServices {
 
 	private final ISubjectDao iSubjectDao;
 
