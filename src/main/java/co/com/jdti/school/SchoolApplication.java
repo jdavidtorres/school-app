@@ -17,6 +17,11 @@ import co.com.jdti.school.services.ITeacherServices;
 @SpringBootApplication
 public class SchoolApplication {
 
+    private final IStudentServices iStudentServices;
+    private final ICourseServices iCourseServices;
+    private final ITeacherServices iTeacherServices;
+    private final ISubjectServices iSubjectServices;
+
     public static void main(String[] args) {
         SpringApplication.run(SchoolApplication.class, args);
     }
