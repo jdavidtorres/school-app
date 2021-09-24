@@ -52,5 +52,11 @@ public class SchoolApplication implements CommandLineRunner {
         iSubjectServices.save(Subject.builder().name("Geometría").build());
         iSubjectServices.save(Subject.builder().name("Ética").build());
         iSubjectServices.save(Subject.builder().name("Matemáticas").build());
+        subjectServices.save(Subject.builder().name("Matemáticas").build());
+        subjectServices.save(Subject.builder().name("Lenguaje").build());
+        subjectServices.save(Subject.builder().name("Historia").build());
+        subjectServices.save(Subject.builder().name("Geometría").build());
+        subjectServices.save(Subject.builder().name("Ética").build());
+        subjectServices.save(Subject.builder().name("Matemáticas").build());
     }
 }
