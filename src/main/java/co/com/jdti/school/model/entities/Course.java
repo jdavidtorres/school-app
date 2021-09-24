@@ -24,12 +24,11 @@ import java.util.List;
 public class Course {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue
     @Column(name = "id", unique = true, nullable = false, updatable = false)
-    private String id;
+    private Long id;
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @ManyToOne
@@ -38,8 +37,4 @@ public class Course {
 
     @OneToMany(mappedBy = "course")
     private List<Student> students;
-
-    public Course(String id) {
-        this.id = id;
-    }
 }
