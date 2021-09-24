@@ -16,23 +16,19 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class SubjectController {
 
-    private final ISubjectServices iSubjectServices;
-
-    public SubjectController(ISubjectServices iSubjectServices) {
-        this.iSubjectServices = iSubjectServices;
-    }
+    private final SubjectServices subjectServices;
 
     @GetMapping({"/subjects"})
     public String subjects(Model model) {
         model.addAttribute("title", "Subjects");
-        model.addAttribute("subjects", iSubjectServices.findAll());
+        model.addAttribute("subjects", subjectServices.findAll());
         return "subjects";
     }
 
     @GetMapping({"/subject/{id}"})
     public String subjectDetail(Model model, @PathVariable String id) {
         model.addAttribute("title", "Details");
-        Optional<Subject> subjectOptional = iSubjectServices.findById(Long.parseLong(id));
+        Optional<Subject> subjectOptional = subjectServices.findById(Long.parseLong(id));
         if (subjectOptional.isPresent()) {
             Subject subject = subjectOptional.get();
             model.addAttribute("subject", subject);
