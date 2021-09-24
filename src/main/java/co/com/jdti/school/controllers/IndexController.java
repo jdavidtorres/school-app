@@ -71,7 +71,7 @@ public class IndexController {
     @RequestMapping({"/student/{id}"})
     public String studentDetail(Model model, @PathVariable String id) {
         model.addAttribute("title", "Details");
-        Optional<Student> studentOptional = studentServices.findById(id);
+        Optional<Student> studentOptional = studentServices.findById(Long.parseLong(id));
         if (studentOptional.isPresent()) {
             Student student = studentOptional.get();
             model.addAttribute("student", student);
@@ -90,7 +90,7 @@ public class IndexController {
 
     @GetMapping("/course/{id}")
     public String courseDetails(@PathVariable String id, Model model) {
-        Optional<Course> courseOptional = coursesServices.findById(id);
+        Optional<Course> courseOptional = coursesServices.findById(Long.parseLong(id));
         if (courseOptional.isPresent()) {
             Course course = courseOptional.get();
             model.addAttribute("title", "Course " + course.getName());
@@ -102,7 +102,7 @@ public class IndexController {
 
     @GetMapping("/edit-course/{id}")
     public String addStudentToCourse(@PathVariable String id, Model model) {
-        Optional<Course> courseOptional = coursesServices.findById(id);
+        Optional<Course> courseOptional = coursesServices.findById(Long.parseLong(id));
         if (courseOptional.isPresent()) {
             Course course = courseOptional.get();
             model.addAttribute("title", "Course " + course.getName());

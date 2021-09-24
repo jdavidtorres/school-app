@@ -25,7 +25,8 @@ public class CoursesServices {
         return iCoursesDao.save(course);
     }
 
-    public Optional<Course> findById(String id) {
+    @Transactional(readOnly = true)
+    public Optional<Course> findById(Long id) {
         return iCoursesDao.findById(id);
     }
 }

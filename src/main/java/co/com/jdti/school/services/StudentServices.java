@@ -26,7 +26,7 @@ public class StudentServices {
     }
 
     @Transactional(readOnly = true)
-    public Optional<Student> findById(String id) {
+    public Optional<Student> findById(Long id) {
         return iStudentDao.findById(id);
     }
 
