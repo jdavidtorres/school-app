@@ -20,13 +20,12 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class Teacher {
 
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", unique = true, nullable = false, updatable = false)
-	private String id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", unique = true, nullable = false, updatable = false)
+    private Long id;
 
-	@NotEmpty
-	@Column(name = "name", nullable = false)
-	private String name;
+    @NotEmpty
+    @Column(name = "name", nullable = false)
+    private String name;
 }
