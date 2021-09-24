@@ -12,16 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class StudentController {
 
-    private final IStudentServices iStudentServices;
-
-    public StudentController(IStudentServices iStudentServices) {
-        this.iStudentServices = iStudentServices;
-    }
+    private final StudentServices studentServices;
 
     @GetMapping({"/students"})
     public String students(Model model) {
         model.addAttribute("title", "Students");
-        model.addAttribute("students", iStudentServices.findAll());
+        model.addAttribute("students", studentServices.findAll());
         return "students";
     }
 }
