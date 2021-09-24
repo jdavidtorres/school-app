@@ -20,10 +20,10 @@ import co.com.jdti.school.model.entities.Teacher;
 @SpringBootApplication
 public class SchoolApplication implements CommandLineRunner {
 
-    private final IStudentServices iStudentServices;
-    private final ICourseServices iCourseServices;
-    private final ITeacherServices iTeacherServices;
-    private final ISubjectServices iSubjectServices;
+    private final StudentServices studentServices;
+    private final CoursesServices coursesServices;
+    private final TeacherServices teacherServices;
+    private final SubjectServices subjectServices;
 
     public static void main(String[] args) {
         SpringApplication.run(SchoolApplication.class, args);
