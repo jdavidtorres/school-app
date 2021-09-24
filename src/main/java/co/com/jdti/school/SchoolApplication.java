@@ -2,8 +2,6 @@ package co.com.jdti.school;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,23 +15,11 @@ import co.com.jdti.school.services.ISubjectServices;
 import co.com.jdti.school.services.ITeacherServices;
 
 @SpringBootApplication
-public class SchoolApplication implements CommandLineRunner {
+public class SchoolApplication {
 
-	@Autowired
-	private IStudentServices iStudentServices;
-
-	@Autowired
-	private ICourseServices iCourseServices;
-
-	@Autowired
-	private ITeacherServices iTeacherServices;
-
-	@Autowired
-	private ISubjectServices iSubjectServices;
-
-	public static void main(String[] args) {
-		SpringApplication.run(SchoolApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(SchoolApplication.class, args);
+    }
 
 	@Override
 	public void run(String... args) throws Exception {
