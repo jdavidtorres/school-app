@@ -1,10 +1,12 @@
 package co.com.jdti.school;
 
 import co.com.jdti.school.model.entities.Course;
+import co.com.jdti.school.model.entities.Schedule;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.model.entities.Subject;
 import co.com.jdti.school.model.entities.Teacher;
 import co.com.jdti.school.services.CoursesServices;
+import co.com.jdti.school.services.ScheduleServices;
 import co.com.jdti.school.services.StudentServices;
 import co.com.jdti.school.services.SubjectServices;
 import co.com.jdti.school.services.TeacherServices;
@@ -12,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.Date;
 
 @RequiredArgsConstructor
 @SpringBootApplication
