@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import co.com.jdti.school.model.entities.Course;
 
 @Repository
-public interface ICoursesDao extends JpaRepository<Course, String>{
+public interface ICoursesDao extends JpaRepository<Course, Long> {
 
-	
 }
