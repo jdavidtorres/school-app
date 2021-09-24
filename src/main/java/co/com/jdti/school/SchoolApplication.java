@@ -39,6 +39,8 @@ public class SchoolApplication implements CommandLineRunner {
         coursesServices.save(Course.builder().name("4A").director(teacherServices.save(Teacher.builder().name("Fulanito de Tal").build())).build());
         coursesServices.save(Course.builder().name("5A").director(teacherServices.save(Teacher.builder().name("Juanita Perez").build())).build());
         coursesServices.save(Course.builder().name("6A").director(teacherServices.save(Teacher.builder().name("Pepito Jr. Perez").build())).build());
+
+
         subjectServices.save(Subject.builder().name("Matemáticas").build());
         subjectServices.save(Subject.builder().name("Lenguaje").build());
         subjectServices.save(Subject.builder().name("Historia").build());
