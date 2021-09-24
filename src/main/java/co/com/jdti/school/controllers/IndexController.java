@@ -20,6 +20,7 @@ import java.util.Optional;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class IndexController {
 
 	@Autowired
