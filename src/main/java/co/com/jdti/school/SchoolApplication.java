@@ -1,12 +1,5 @@
 package co.com.jdti.school;
 
-import java.util.ArrayList;
-
-import lombok.RequiredArgsConstructor;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.model.entities.Subject;
@@ -15,10 +8,15 @@ import co.com.jdti.school.services.ICourseServices;
 import co.com.jdti.school.services.IStudentServices;
 import co.com.jdti.school.services.ISubjectServices;
 import co.com.jdti.school.services.ITeacherServices;
+import lombok.RequiredArgsConstructor;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.ArrayList;
 
 @RequiredArgsConstructor
 @SpringBootApplication
-public class SchoolApplication {
 public class SchoolApplication implements CommandLineRunner {
 
     private final IStudentServices iStudentServices;
@@ -30,26 +28,31 @@ public class SchoolApplication implements CommandLineRunner {
         SpringApplication.run(SchoolApplication.class, args);
     }
 
-	@Override
-	public void run(String... args) throws Exception {
-		Course course1 = iCourseServices
-				.save(new Course("aka1", "2A", iTeacherServices.save(new Teacher("id1", "Laracrisa Euclidiana")),
-						new ArrayList<>(), new ArrayList<>()));
-		iCourseServices.save(new Course("aka1", "3A", iTeacherServices.save(new Teacher("id1", "Pepito Perez")),
-				new ArrayList<>(), new ArrayList<>()));
-		iCourseServices.save(new Course("aka2", "4A", iTeacherServices.save(new Teacher("id2", "Fulanito de Tal")),
-				new ArrayList<>(), new ArrayList<>()));
-		iCourseServices.save(new Course("aka3", "5A", iTeacherServices.save(new Teacher("id3", "Juanita Perez")),
-				new ArrayList<>(), new ArrayList<>()));
-		iCourseServices.save(new Course("aka4", "6A", iTeacherServices.save(new Teacher("id4", "Pepito Jr. Perez")),
-				new ArrayList<>(), new ArrayList<>()));
-		iStudentServices.save(new Student("aka1", "dni1", "Hugo", "Fulano", "A-", null, null, "Calle 1", course1));
-		iStudentServices
-				.save(new Student("aka2", "dni2", "Paco", "Perez", "O-", "Pepito", "Perez", "Calle 2", course1));
-		iStudentServices.save(new Student("aka3", "dni3", "Luis", "Mengano", "O+", "", "", "Calle 3", null));
-		iStudentServices.save(new Student("aka4", "dni4", "Paco", "Mengano", "O+", "", "", "Calle 4", null));
-		iSubjectServices.save(new Subject(1, "Matemáticas", null));
-		iSubjectServices.save(new Subject(2, "Lenguaje", null));
-		iSubjectServices.save(new Subject(3, "Historia", null));
-	}
+    @Override
+    public void run(String... args) throws Exception {
+        Teacher teacher2A = iTeacherServices.save(Teacher.builder().name("Laracrisa Euclidiana").build());
+        Teacher teacher3A = iTeacherServices.save(Teacher.builder().name("Pepito Perez").build());
+
+        Course course1 = iCourseServices.save(Course.builder()
+                .name("2A")
+                .director(teacher2A)
+                .build());
+        iCourseServices.save(Course.builder()
+                .name("3A")
+                .director(teacher3A)
+                .build());
+        iCourseServices.save(new Course("aka2", "4A", iTeacherServices.save(new Teacher("id2", "Fulanito de Tal")), null));
+        iCourseServices.save(new Course("aka3", "5A", iTeacherServices.save(new Teacher("id3", "Juanita Perez")), new ArrayList<>()));
+        iCourseServices.save(new Course("aka4", "6A", iTeacherServices.save(new Teacher("id4", "Pepito Jr. Perez")), new ArrayList<>()));
+        iStudentServices.save(new Student("aka1", "dni1", "Hugo", "Fulano", "A-", null, null, "Calle 1", course1));
+        iStudentServices.save(new Student("aka2", "dni2", "Paco", "Perez", "O-", "Pepito", "Perez", "Calle 2", course1));
+        iStudentServices.save(new Student("aka3", "dni3", "Luis", "Mengano", "O+", "", "", "Calle 3", null));
+        iStudentServices.save(new Student("aka4", "dni4", "Paco", "Mengano", "O+", "", "", "Calle 4", null));
+        iSubjectServices.save(Subject.builder().name("Matemáticas").build());
+        iSubjectServices.save(Subject.builder().name("Lenguaje").build());
+        iSubjectServices.save(Subject.builder().name("Historia").build());
+        iSubjectServices.save(Subject.builder().name("Geometría").build());
+        iSubjectServices.save(Subject.builder().name("Ética").build());
+        iSubjectServices.save(Subject.builder().name("Matemáticas").build());
+    }
 }
