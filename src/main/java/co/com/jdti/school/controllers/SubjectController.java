@@ -1,7 +1,8 @@
 package co.com.jdti.school.controllers;
 
 import co.com.jdti.school.model.entities.Subject;
-import co.com.jdti.school.services.ISubjectServices;
+import co.com.jdti.school.services.SubjectServices;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @Slf4j
 @Controller
+@RequiredArgsConstructor
 public class SubjectController {
 
     private final ISubjectServices iSubjectServices;
