@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Component
-public class TeacherServicesImpl {
+public class TeacherServices {
 
     private final ITeacherDao iTeacherDao;
 
