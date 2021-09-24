@@ -25,6 +25,7 @@ public class SchoolApplication implements CommandLineRunner {
     private final CoursesServices coursesServices;
     private final TeacherServices teacherServices;
     private final SubjectServices subjectServices;
+    private final ScheduleServices scheduleServices;
 
     public static void main(String[] args) {
         SpringApplication.run(SchoolApplication.class, args);
