@@ -22,44 +22,38 @@ import javax.validation.constraints.NotEmpty;
 @AllArgsConstructor
 public class Student {
 
-	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-	@Column(name = "id", unique = true, nullable = false, updatable = false)
-	private String id;
+    @Id
+    @GeneratedValue
+    @Column(name = "id", unique = true, nullable = false, updatable = false)
+    private Long id;
 
-	@NotEmpty
-	@Column(name = "dni", nullable = false, unique = true)
-	private String dni;
+    @NotEmpty
+    @Column(name = "dni", nullable = false, unique = true)
+    private String dni;
 
-	@NotEmpty
-	@Column(name = "student_name", nullable = false)
-	private String name;
+    @NotEmpty
+    @Column(name = "student_name", nullable = false)
+    private String name;
 
-	@NotEmpty
-	@Column(name = "lastname", nullable = false)
-	private String lastname;
+    @NotEmpty
+    @Column(name = "lastname", nullable = false)
+    private String lastname;
 
-	@NotEmpty
-	@Column(name = "blood_group", nullable = false)
-	private String bloodGroup;
+    @NotEmpty
+    @Column(name = "blood_group", nullable = false)
+    private String bloodGroup;
 
-	@Column(name = "father_name")
-	private String fatherName;
+    @Column(name = "father_name")
+    private String fatherName;
 
-	@Column(name = "mother_name")
-	private String motherName;
+    @Column(name = "mother_name")
+    private String motherName;
 
-	@NotEmpty
-	@Column(name = "address", nullable = false)
-	private String address;
+    @NotEmpty
+    @Column(name = "address", nullable = false)
+    private String address;
 
-	@ManyToOne
-	@JoinColumn(name = "course_id")
-	private Course course;
-
-	public Student(String name, String lastname) {
-		this.name = name;
-		this.lastname = lastname;
-	}
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
 }
