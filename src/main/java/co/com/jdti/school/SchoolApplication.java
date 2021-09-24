@@ -4,16 +4,14 @@ import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.model.entities.Subject;
 import co.com.jdti.school.model.entities.Teacher;
-import co.com.jdti.school.services.ICourseServices;
-import co.com.jdti.school.services.IStudentServices;
-import co.com.jdti.school.services.ISubjectServices;
-import co.com.jdti.school.services.ITeacherServices;
+import co.com.jdti.school.services.CoursesServices;
+import co.com.jdti.school.services.StudentServices;
+import co.com.jdti.school.services.SubjectServices;
+import co.com.jdti.school.services.TeacherServicesImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.ArrayList;
 
 @RequiredArgsConstructor
 @SpringBootApplication
