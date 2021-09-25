@@ -26,21 +26,22 @@
                 </tr>
             </tbody>
         </table>
-        <div id='calendar'></div>
+        <div id="calendar" class="col-12"></div>
     </div>
     <footer th:replace="layouts/layout :: footer"></footer>
     <script src="/lib/main.js"></script>
-    <script>
+    <script th:inline="javascript">
         /*<![CDATA[*/
+        let course = /*[[${course}]]*/null;
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek',
                 events: [
                     {
-                        "title": "Event 1",
-                        "start": "2021-09-05T09:00:00",
-                        "end": "2021-09-05T11:00:00"
+                        "title": "A",// + course.schedules[0].subject.name,
+                        "start": "2021-09-21T09:00:00",
+                        "end": "2021-09-24 16:51:40.036000"
                     }
                 ]
             });
