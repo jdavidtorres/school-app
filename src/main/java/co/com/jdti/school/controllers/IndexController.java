@@ -3,6 +3,7 @@ package co.com.jdti.school.controllers;
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.services.CoursesServices;
+import co.com.jdti.school.services.ScheduleServices;
 import co.com.jdti.school.services.StudentServices;
 import co.com.jdti.school.services.SubjectServices;
 import co.com.jdti.school.services.TeacherServices;
@@ -27,6 +28,7 @@ public class IndexController {
     private final CoursesServices coursesServices;
     private final TeacherServices teacherServices;
     private final SubjectServices subjectServices;
+    private final ScheduleServices scheduleServices;
 
     private List<Student> getStudents() {
         return studentServices.findAll();
@@ -48,8 +50,7 @@ public class IndexController {
     }
 
     @PostMapping("/save-student")
-    public String save(@Valid @ModelAttribute Student student, BindingResult result, Model model,
-                       RedirectAttributes flash) {
+    public String save(@Valid @ModelAttribute Student student, BindingResult result, Model model, RedirectAttributes flash) {
         if (result.hasErrors()) {
             model.addAttribute("titulo", "Crear Factura");
             flash.addFlashAttribute("error", "Complete the form please!!");
@@ -95,6 +96,8 @@ public class IndexController {
             Course course = courseOptional.get();
             model.addAttribute("title", "Course " + course.getName());
             model.addAttribute("course", course);
+            model.addAttribute("students", studentServices.findByCourseId(course.getId()));
+            model.addAttribute("schedules", scheduleServices.findByCourseId(course.getId()));
             return "courseDetails";
         }
         return "redirect:/index";
