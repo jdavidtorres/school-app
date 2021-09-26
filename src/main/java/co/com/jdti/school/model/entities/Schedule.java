@@ -9,8 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,10 +28,19 @@ public class Schedule {
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "start_class")
+    @Column(name = "start_class", nullable = false)
     private Date start;
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "end_class")
+    @Column(name = "end_class", nullable = false)
     private Date end;
+
+    @Column(name = "title", nullable = false)
+    private String title;
+
+    @Column(name = "subject_id")
+    private Long subjectId;
+
+    @Column(name = "course_id")
+    private Long courseId;
 }
