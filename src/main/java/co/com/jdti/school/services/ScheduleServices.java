@@ -23,4 +23,9 @@ public class ScheduleServices {
     public List<Schedule> findAll() {
         return iScheduleDao.findAll();
     }
+
+    @Transactional(readOnly = true)
+    public List<Schedule> findByCourseId(Long courseId) {
+        return iScheduleDao.findByCourseId(courseId);
+    }
 }
