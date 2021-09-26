@@ -9,8 +9,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
@@ -40,7 +38,7 @@ public class Student {
     private String lastname;
 
     @NotEmpty
-    @Column(name = "blood_group", nullable = false)
+    @Column(name = "blood_group")
     private String bloodGroup;
 
     @Column(name = "father_name")
@@ -53,7 +51,6 @@ public class Student {
     @Column(name = "address", nullable = false)
     private String address;
 
-    @ManyToOne
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @Column(name = "course_id")
+    private Long courseId;
 }
