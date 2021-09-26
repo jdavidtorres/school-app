@@ -6,11 +6,12 @@
 <body>
     <div th:replace="layouts/layout :: header"></div>
     <h1 th:text="${title}">App Title</h1>
-    <div th:if="${course.students.empty}">
+    <div th:if="${students.empty}">
         <h2>No Students</h2>
     </div>
-    <div th:if="${!course.students.empty}" class="container">
-        <table class="table table-sm table-hover">
+    <div th:if="${!students.empty}" class="container">
+        <div id="calendar" class="col-12"></div>
+        <table class="table table-sm table-hove table-striped">
             <thead>
                 <tr>
                     <th>#</th>
@@ -19,31 +20,25 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="student : ${course.students}">
+                <tr th:each="student : ${students}">
                     <td th:text="${studentStat.index}">No.</td>
                     <td th:text="${student.name}">student.name</td>
                     <td th:text="${student.lastname}">Lastname</td>
                 </tr>
             </tbody>
         </table>
-        <div id="calendar" class="col-12"></div>
     </div>
     <footer th:replace="layouts/layout :: footer"></footer>
     <script src="/lib/main.js"></script>
     <script th:inline="javascript">
         /*<![CDATA[*/
         let course = /*[[${course}]]*/null;
+        let schedules = /*[[${schedules}]]*/null;
         document.addEventListener('DOMContentLoaded', function () {
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'timeGridWeek',
-                events: [
-                    {
-                        "title": "A",// + course.schedules[0].subject.name,
-                        "start": "2021-09-21T09:00:00",
-                        "end": "2021-09-24 16:51:40.036000"
-                    }
-                ]
+                events: schedules
             });
             calendar.render();
         });
