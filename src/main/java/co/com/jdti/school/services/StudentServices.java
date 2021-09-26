@@ -34,4 +34,9 @@ public class StudentServices {
     public Optional<Student> findByDni(String dni) {
         return iStudentDao.findByDni(dni);
     }
+
+    @Transactional(readOnly = true)
+    public List<Student> findByCourseId(Long courseId) {
+        return iStudentDao.findByCourseId(courseId);
+    }
 }
