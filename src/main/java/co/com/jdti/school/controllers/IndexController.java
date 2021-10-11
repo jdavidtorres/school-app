@@ -128,7 +128,7 @@ public class IndexController {
     public String addStudent(@RequestParam String courseId, @RequestParam String dni) {
         Optional<Student> studentOptional = studentServices.findByDni(dni);
         Student student = studentOptional.get();
-        student.setCourse(Course.builder().id(Long.parseLong(courseId)).build());
+        student.setCourseId(Long.parseLong(courseId));
         studentServices.save(student);
         return "redirect:/edit-course/" + courseId;
     }
