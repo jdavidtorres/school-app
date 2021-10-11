@@ -2,9 +2,12 @@ package co.com.jdti.school;
 
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Schedule;
+import co.com.jdti.school.model.entities.ScoreReference;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.model.entities.Subject;
 import co.com.jdti.school.model.entities.Teacher;
+import co.com.jdti.school.model.repositories.IScoreDao;
+import co.com.jdti.school.model.repositories.IScoreReferenceDao;
 import co.com.jdti.school.services.CoursesServices;
 import co.com.jdti.school.services.ScheduleServices;
 import co.com.jdti.school.services.StudentServices;
@@ -26,6 +29,8 @@ public class SchoolApplication implements CommandLineRunner {
     private final TeacherServices teacherServices;
     private final SubjectServices subjectServices;
     private final ScheduleServices scheduleServices;
+    private final IScoreDao iScoreDao;
+    private final IScoreReferenceDao iScoreReferenceDao;
 
     public static void main(String[] args) {
         SpringApplication.run(SchoolApplication.class, args);
@@ -58,5 +63,7 @@ public class SchoolApplication implements CommandLineRunner {
 
         Schedule schedule1 = scheduleServices.save(Schedule.builder().start(new Date()).end(new Date()).subjectId(math.getId()).courseId(course1.getId()).title(math.getName()).build());
         Schedule schedule2 = scheduleServices.save(Schedule.builder().start(new Date()).end(new Date()).subjectId(history.getId()).courseId(course1.getId()).title(history.getName()).build());
+
+        ScoreReference scoreReference1 = iScoreReferenceDao.save(ScoreReference.builder().name("Test 1").courseId(course1.getId()).subjectId(math.getId()).build());
     }
 }
