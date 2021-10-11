@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 import java.util.Date;
 
 @Entity
-@Table(name = "schedule")
+@Table(name = "schedules")
 @Data
 @Builder
 @NoArgsConstructor
