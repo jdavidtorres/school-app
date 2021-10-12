@@ -32,4 +32,7 @@ public class ScoreReference {
 
     @Column(name = "subject_id")
     private Long subjectId;
+
+    @Column(name = "reference_father_id")
+    private String scoreReferenceFather;
 }

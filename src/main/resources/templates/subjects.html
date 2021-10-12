@@ -4,30 +4,30 @@
 <head th:replace="layouts/layout :: head"></head>
 
 <body>
-	<div th:replace="layouts/layout :: header"></div>
-	<div th:if="${!subjects.empty}" class="container my-4">
-		<h1 th:text="${title}" class="mb-2">App Title</h1>
-		<div th:if="${subjects.empty}">
-			<h2>No Students</h2>
-		</div>
-		<table class="table table-hover table-sm">
-			<thead>
-				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Name</th>
-					<th scope="col">Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="subject : ${subjects}">
-					<td th:text="${subjectStat.index}">No.</td>
-					<td th:text="${subject.name}">student.name</td>
-					<td><a th:href="@{/subject/} + ${subject.id}">Details</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<footer th:replace="layouts/layout :: footer"></footer>
+    <div th:replace="layouts/layout :: header"></div>
+    <div th:if="${!subjects.empty}" class="container my-4">
+        <h1 th:text="${title}" class="mb-2">App Title</h1>
+        <div th:if="${subjects.empty}">
+            <h2>No Students</h2>
+        </div>
+        <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="subject : ${subjects}">
+                    <td th:text="${subjectStat.index}">No.</td>
+                    <td th:text="${subject.name}">student.name</td>
+                    <td><a th:href="@{/subject/} + ${subject.id}">Details</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer th:replace="layouts/layout :: footer"></footer>
 </body>
 
 </html>

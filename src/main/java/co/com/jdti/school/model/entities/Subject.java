@@ -28,4 +28,7 @@ public class Subject {
     @NotEmpty
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "teacher_id")
+    private Long teacherId;
 }

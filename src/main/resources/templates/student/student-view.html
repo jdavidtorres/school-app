@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+<body>
+    <div class="container my-4">
+        <table class="table table-sm table-hover table-striped my-4">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th th:each="ref : ${references}" th:text="${ref}">Reference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Math</td>
+                    <td>3.5</td>
+                    <td>4.0</td>
+                    <td>3.75</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer th:replace="layouts/layout :: footer"></footer>
+</body>
+</html>

@@ -18,6 +18,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 @RequiredArgsConstructor
@@ -44,7 +46,9 @@ public class SchoolApplication implements CommandLineRunner {
         Teacher director5A = teacherServices.save(Teacher.builder().name("Juanita Perez").build());
         Teacher director6A = teacherServices.save(Teacher.builder().name("Pepito Jr. Perez").build());
 
-        Subject math = subjectServices.save(Subject.builder().name("Matemáticas").build());
+        Teacher mathTeacher = teacherServices.save(Teacher.builder().name("Jumanji José").build());
+
+        Subject math = subjectServices.save(Subject.builder().name("Matemáticas").teacherId(mathTeacher.getId()).build());
         Subject lang = subjectServices.save(Subject.builder().name("Lenguaje").build());
         Subject history = subjectServices.save(Subject.builder().name("Historia").build());
         Subject geometry = subjectServices.save(Subject.builder().name("Geometría").build());
@@ -61,8 +65,8 @@ public class SchoolApplication implements CommandLineRunner {
         Student student3 = studentServices.save(Student.builder().dni("dni3").name("Luis").lastname("Mengano").bloodGroup("O+").address("Calle 3").courseId(course1.getId()).build());
         Student student4 = studentServices.save(Student.builder().dni("dni4").name("Paco").lastname("Mengano").bloodGroup("O+").address("Calle 4").build());
 
-        Schedule schedule1 = scheduleServices.save(Schedule.builder().start(new Date()).end(new Date()).subjectId(math.getId()).courseId(course1.getId()).title(math.getName()).build());
-        Schedule schedule2 = scheduleServices.save(Schedule.builder().start(new Date()).end(new Date()).subjectId(history.getId()).courseId(course1.getId()).title(history.getName()).build());
+        Schedule schedule1 = scheduleServices.save(Schedule.builder().start(new Date()).end(Date.from(Instant.now().plus(1, ChronoUnit.HOURS))).subjectId(math.getId()).courseId(course1.getId()).title(math.getName()).build());
+        Schedule schedule2 = scheduleServices.save(Schedule.builder().start(Date.from(Instant.now().plus(1, ChronoUnit.HOURS))).end(Date.from(Instant.now().plus(2, ChronoUnit.HOURS))).subjectId(history.getId()).courseId(course1.getId()).title(history.getName()).build());
 
         ScoreReference scoreReference1 = iScoreReferenceDao.save(ScoreReference.builder().name("Test 1").courseId(course1.getId()).subjectId(math.getId()).build());
     }
