@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'co.com.jdti'
-version = '0.0.3'
+version = '0.0.5'
 sourceCompatibility = '11'
 targetCompatibility = '11'
 
@@ -35,6 +35,7 @@ dependencies {
     runtimeOnly 'com.h2database:h2:1.4.200'
     implementation 'org.webjars:jquery:3.6.0'
     implementation 'org.webjars:bootstrap:5.1.0'
+    implementation 'org.webjars.npm:popper.js:1.16.1'
     implementation 'org.webjars.npm:bootstrap-icons:1.5.0'
     compileOnly 'org.projectlombok:lombok:1.18.20'
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
