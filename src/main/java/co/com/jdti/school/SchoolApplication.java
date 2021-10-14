@@ -64,6 +64,11 @@ public class SchoolApplication implements CommandLineRunner {
         Student student2 = studentServices.save(Student.builder().dni("dni2").name("Paco").lastname("Perez").bloodGroup("O-").address("Calle 2").fatherName("Pepito").motherName("Perez").courseId(course1.getId()).build());
         Student student3 = studentServices.save(Student.builder().dni("dni3").name("Luis").lastname("Mengano").bloodGroup("O+").address("Calle 3").courseId(course1.getId()).build());
         Student student4 = studentServices.save(Student.builder().dni("dni4").name("Paco").lastname("Mengano").bloodGroup("O+").address("Calle 4").build());
+        Student student5 = studentServices.save(Student.builder().dni("dni5").name("Robert").lastname("Pascual").bloodGroup("A-").address("Calle 1").courseId(course1.getId()).build());
+        Student student6 = studentServices.save(Student.builder().dni("dni6").name("Maria Juana").lastname("Aranda").bloodGroup("A-").address("Calle 1").courseId(course1.getId()).build());
+        Student student7 = studentServices.save(Student.builder().dni("dni7").name("Sara").lastname("Maestre").bloodGroup("A-").address("Calle 1").courseId(course1.getId()).build());
+        Student student8 = studentServices.save(Student.builder().dni("dni8").name("Anastasio").lastname("Lafuente").bloodGroup("A-").address("Calle 1").courseId(course1.getId()).build());
+        Student student9 = studentServices.save(Student.builder().dni("dni9").name("Magdalena").lastname("Diallo").bloodGroup("A-").address("Calle 1").courseId(course1.getId()).build());
 
         Schedule schedule1 = scheduleServices.save(Schedule.builder().start(new Date()).end(Date.from(Instant.now().plus(1, ChronoUnit.HOURS))).subjectId(math.getId()).courseId(course1.getId()).title(math.getName()).build());
         Schedule schedule2 = scheduleServices.save(Schedule.builder().start(Date.from(Instant.now().plus(1, ChronoUnit.HOURS))).end(Date.from(Instant.now().plus(2, ChronoUnit.HOURS))).subjectId(history.getId()).courseId(course1.getId()).title(history.getName()).build());
