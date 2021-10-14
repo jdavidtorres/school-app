@@ -14,7 +14,22 @@
         <h2>No Students</h2>
     </div>
     <div th:if="${!students.empty}" class="container">
-        <div id="calendar" class="col-12"></div>
+        <table class="table table-sm table-hover table-striped my-4">
+            <thead>
+                <tr>
+                    <th>Subject</th>
+                    <th th:each="ref : ${studentsSubject.scoreReferenceList}" th:text="${ref}">Reference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="score : ${studentsSubject.getStudentId}">
+                    <td>Math</td>
+                    <td>3.5</td>
+                    <td>4.0</td>
+                    <td>3.75</td>
+                </tr>
+            </tbody>
+        </table>
         <table class="table table-sm table-hove table-striped">
             <thead>
                 <tr>
@@ -35,6 +50,7 @@
                 </tr>
             </tbody>
         </table>
+        <div id="calendar" class="col-12"></div>
     </div>
     <footer th:replace="layouts/layout :: footer"></footer>
     <script src="/lib/main.js"></script>

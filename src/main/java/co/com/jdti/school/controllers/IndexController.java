@@ -1,5 +1,6 @@
 package co.com.jdti.school.controllers;
 
+import co.com.jdti.school.dtos.StudentBySubject;
 import co.com.jdti.school.model.entities.Course;
 import co.com.jdti.school.model.entities.Student;
 import co.com.jdti.school.services.CoursesServices;
@@ -12,7 +13,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -98,6 +104,21 @@ public class IndexController {
             model.addAttribute("course", course);
             model.addAttribute("students", studentServices.findByCourseId(course.getId()));
             model.addAttribute("schedules", scheduleServices.findByCourseId(course.getId()));
+            return "courseDetails";
+        }
+        return "redirect:/index";
+    }
+
+    @GetMapping("/course/{id}/teacher/{teacherId}")
+    public String courseDetailsByTeacher(@PathVariable String id, @PathVariable String teacherId, Model model) {
+        Optional<Course> courseOptional = coursesServices.findById(Long.parseLong(id));
+        if (courseOptional.isPresent()) {
+            Course course = courseOptional.get();
+            model.addAttribute("title", "Course " + course.getName());
+            model.addAttribute("course", course);
+            model.addAttribute("students", studentServices.findByCourseId(course.getId()));
+            model.addAttribute("schedules", scheduleServices.findByCourseId(course.getId()));
+            model.addAttribute("studentsSubject", new StudentBySubject());
             return "courseDetails";
         }
         return "redirect:/index";
