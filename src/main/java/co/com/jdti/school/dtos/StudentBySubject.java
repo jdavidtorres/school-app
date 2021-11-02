@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -17,4 +18,11 @@ public class StudentBySubject {
     private Long studentId;
     private Long subjectId;
     private List<ScoreReference> scoreReferenceList;
+
+    public void addScoreReference(ScoreReference scoreReference) {
+        if (scoreReference == null) {
+            this.scoreReferenceList = new ArrayList<>();
+        }
+        this.scoreReferenceList.add(scoreReference);
+    }
 }
