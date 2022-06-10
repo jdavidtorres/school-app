@@ -28,4 +28,11 @@ public class SchoolSecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser(users.username("admin").password("admin").roles("ADMIN", "USER"))
                 .withUser(users.username("student-1").password("12345").roles("USER"));
     }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN");
+    }
 }
