@@ -32,10 +32,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-    runtimeOnly 'com.h2database:h2:1.4.200'
+    runtimeOnly 'com.h2database:h2:2.1.212'
     implementation 'org.webjars:jquery:3.6.0'
     implementation 'org.webjars:bootstrap:5.0.2'
-    implementation 'org.webjars.npm:bootstrap-icons:1.5.0'
-    compileOnly 'org.projectlombok:lombok:1.18.20'
-    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+    implementation 'org.webjars.npm:bootstrap-icons:1.8.1'
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
 }
