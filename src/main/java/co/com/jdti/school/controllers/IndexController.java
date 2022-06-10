@@ -128,9 +128,7 @@ public class IndexController {
 	@PostMapping("/get-student")
 	public String getStudent(@RequestParam String dni, @RequestParam String courseId, RedirectAttributes flash) {
 		Optional<Student> studentOptional = iStudentServices.findByDni(dni);
-		if (studentOptional.isPresent()) {
-			flash.addFlashAttribute("student", studentOptional.get());
-		}
+		studentOptional.ifPresent(student -> flash.addFlashAttribute("student", student));
 		return "redirect:/edit-course/" + courseId;
 	}
 
